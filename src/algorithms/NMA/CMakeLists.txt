@@ -5,4 +5,4 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_subdirectory(adapters)
-add_subdirectory(gnuradio_blocks)
+add_subdirectory(gnu_radio_blocks)

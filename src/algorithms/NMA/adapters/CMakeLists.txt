@@ -5,23 +5,21 @@
  # SPDX-License-Identifier: BSD-3-Clause
 
 
- if(USE_CMAKE_TARGET_SOURCES)
- add_library(pvt_adapters STATIC)
- target_sources(pvt_adapters
+ add_library(nma_adapters STATIC)
+ target_sources(nma_adapters
  PRIVATE
  galileo_open_service_navigation_message_authentication.cc
  PUBLIC
-galileo_open_service_navigation_message_authentication.h
+ galileo_open_service_navigation_message_authentication.h
  )
- else()
- source_group(Headers FILES galileo_open_service_navigation_message_authentication.h)
- add_library(nma_adapters galileo_open_service_navigation_message_authentication.h.cc galileo_open_service_navigation_message_authentication.h.h)
- endif()
 
  target_link_libraries(nma_adapters
  PUBLIC
- nma_gr_blocks
+     nma_gr_blocks
  PRIVATE
+     Gflags::gflags
+     Glog::glog
+     Gnuradio::runtime
  )
 
  target_include_directories(nma_adapters
